@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const getScrollStep = () => {
             const firstCard = track.querySelector(".project-gallery-card");
             if (firstCard) {
-                // Returns individual card width plus its column gaps
                 return firstCard.getBoundingClientRect().width + 24; 
             }
             return 360;
