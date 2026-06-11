@@ -1,150 +1,180 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ishi | IT Student & Developer Portfolio</title>
+    <title>Ishi | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Ishi<span class="accent">.</span></a>
-            
-            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+    <header class="portfolio-header">
+        <div class="logo">Portfolio<span class="dot">.</span></div>
+        <div class="header-right">
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
-
-            <div class="nav-controls">
-                <button id="theme-toggle" aria-label="Toggle theme" class="theme-btn">
-                    <span class="mode-icon">☀️</span>
-                </button>
-                
-                <label for="menu-toggle" class="menu-burger" aria-label="Toggle Navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-            </div>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="18.36" x2="5.64" y2="19.78"></line><line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line></svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
         </div>
     </header>
 
-    <main class="container">
-        
-        <section id="about" class="hero section-fade">
-            <div class="hero-content">
-                <p class="hero-subtitle">2nd-Year IT Student & Developer</p>
-                <h1 class="hero-title">Building efficient software from the <span class="accent">low-level</span> up.</h1>
-                <p class="hero-description">
-                    Passionate about software architecture and front-end design. Bridging the gap between robust backend logic—using C++, Java, and Python—and clean, responsive user interfaces.
+    <section id="about" class="section-container base-hero">
+        <div class="hero-split">
+            <div class="hero-text-pane">
+                <span class="badge">Welcome to my space</span>
+                <h1 class="main-greet">Hi, I'm Ishi</h1>
+                <h2 class="sub-specialty">Software Developer</h2>
+                <p class="bio-paragraph">
+                    I am an aspiring software engineer and a 2nd-year BSIT student focused on exploring the architecture of applications from the low-level up. I enjoy bridging the gap between clean structural backend programming and intuitive user experiences.
                 </p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View My Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <div class="cta-group">
+                    <a href="#projects" class="action-btn primary-fill">View Gallery</a>
+                    <a href="#contact" class="action-btn secondary-outline">Let's Connect</a>
                 </div>
             </div>
-        </section>
-
-        <hr class="divider">
-
-        <section id="skills" class="skills section-fade">
-            <h2 class="section-title">Technical Skills<span class="accent">.</span></h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Software & Backend</h3>
-                    <ul>
-                        <li>C++ <span class="skill-detail">(Data Structures)</span></li>
-                        <li>Java <span class="skill-detail">(OOP Fundamentals)</span></li>
-                        <li>Python <span class="skill-detail">(Scripting & Automation)</span></li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Low-Level</h3>
-                    <ul>
-                        <li>Assembly (ASM) <span class="skill-detail">(Architecture)</span></li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Front-End</h3>
-                    <ul>
-                        <li>HTML5 & CSS3 <span class="skill-detail">(Semantic & Responsive)</span></li>
-                        <li>JavaScript <span class="skill-detail">(Vanilla ES6+)</span></li>
-                    </ul>
+            <div class="hero-image-pane">
+                <div class="profile-placeholder">
+                    <img src="assets/portfolio-img.jpg" class="profile-img">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr class="divider">
+    <section id="skills" class="section-container skills-section">
+        <div class="section-intro">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">Categorized engineering capabilities</p>
+        </div>
+        
+        <div class="skills-category-grid">
+            <div class="skills-category-card">
+                <h3>Core Languages</h3>
+                <ul class="skills-list">
+                    <li><span class="indicator"></span> C++ (Memory & Pointers)</li>
+                    <li><span class="indicator"></span> Java (OOP Architecture)</li>
+                    <li><span class="indicator"></span> Python (Scripting & Tools)</li>
+                </ul>
+            </div>
+            <div class="skills-category-card">
+                <h3>Web & Interfaces</h3>
+                <ul class="skills-list">
+                    <li><span class="indicator"></span> HTML5 / CSS3 Layouts</li>
+                    <li><span class="indicator"></span> JavaScript (ES6+ App Logic)</li>
+                    <li><span class="indicator"></span> Responsive UX Design</li>
+                </ul>
+            </div>
+            <div class="skills-category-card">
+                <h3>Foundations</h3>
+                <ul class="skills-list">
+                    <li><span class="indicator"></span> Assembly (ASM) Basics</li>
+                    <li><span class="indicator"></span> Git / Version Control</li>
+                    <li><span class="indicator"></span> Command Line Systems</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        <section id="projects" class="projects section-fade">
-            <h2 class="section-title">Featured Projects<span class="accent">.</span></h2>
-            <div class="projects-grid">
+    <section id="projects" class="section-container projects-section">
+        <div class="section-header-row">
+            <div class="section-intro">
+                <h2 class="section-title">Featured Software Projects</h2>
+                <p class="section-subtitle">Swipe or use controls to inspect builds</p>
+            </div>
+            <div class="carousel-controls">
+                <button id="prev-btn" class="ctrl-arrow" aria-label="Previous Project">&larr;</button>
+                <button id="next-btn" class="ctrl-arrow" aria-label="Next Project">&rarr;</button>
+            </div>
+        </div>
+
+        <div class="gallery-viewport">
+            <div id="gallery-track" class="gallery-track">
                 
-                <div class="project-card">
-                    <div class="project-tag">C++ / Assembly</div>
-                    <h3 class="project-title">Custom 8-Bit CPU Simulator</h3>
-                    <p class="project-text">
-                        A lightweight command-line simulator executing low-level assembly instructions, mapping register states, and monitoring memory management.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="proj-link source-link">
-                            View GitHub Repo <span>&rarr;</span>
-                        </a>
+                <div class="project-gallery-card">
+                    <span class="project-tag">C++ / Assembly</span>
+                    <h3>8-Bit CPU Simulator</h3>
+                    <p>A lightweight command-line simulator executing low-level assembly instructions and mapping register states dynamically.</p>
+                    <a href="#" class="project-inline-link">View Repository &rarr;</a>
+                </div>
+
+                <div class="project-gallery-card">
+                    <span class="project-tag">Java</span>
+                    <h3>Student Info System</h3>
+                    <p>An object-oriented desktop environment managing secure system files, schema structures, and data handling.</p>
+                    <a href="#" class="project-inline-link">View Repository &rarr;</a>
+                </div>
+
+                <div class="project-gallery-card highlight-card">
+                    <span class="project-tag">Web Application</span>
+                    <h3>Algorithmic Visualizer</h3>
+                    <p>An interactive frontend single-page dashboard mapping sorting algorithms step-by-step for educational viewing.</p>
+                    <div class="project-box-footer">
+                        <a href="#" class="mini-btn">Live Demo</a>
+                        <a href="#" class="project-inline-link">GitHub</a>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-tag">Java</div>
-                    <h3 class="project-title">Student Information Management System</h3>
-                    <p class="project-text">
-                        An object-oriented desktop application featuring file I/O operations, complex search sorting, and secure user authentication schemas.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="proj-link source-link">
-                            View GitHub Repo <span>&rarr;</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-tag">HTML / CSS / JS</div>
-                    <h3 class="project-title">Algorithmic Visualizer Dashboard</h3>
-                    <p class="project-text">
-                        An interactive, highly responsive web dashboard designed to visualize sorting algorithms (Bubble, Merge, Quick) step-by-step.
-                    </p>
-                    <div class="project-links dual-links">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="proj-link live-link">Live Demo</a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="proj-link source-link">GitHub</a>
-                    </div>
+                <div class="project-gallery-card">
+                    <span class="project-tag">Python Tool</span>
+                    <h3>Automation Script Matrix</h3>
+                    <p>A sequence of command-line tools designed for parsing structural diagnostic records and building log reports.</p>
+                    <a href="#" class="project-inline-link">View Code &rarr;</a>
                 </div>
 
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr class="divider">
+    <section id="contact" class="section-container contact-section">
+        <div class="section-intro">
+            <h2 class="section-title">Connect & Collaborate</h2>
+            <p class="section-subtitle">Reach out directly or leave a quick review</p>
+        </div>
 
-        <section id="contact" class="contact section-fade">
-            <h2 class="section-title">Let's Connect<span class="accent">.</span></h2>
-            <p class="contact-text">
-                Always open to collaborating on open-source projects, discussing software architecture, or exploring front-end opportunities.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-item">Email</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-item">LinkedIn</a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-item">GitHub</a>
+        <div class="contact-split-grid">
+            <div class="contact-box-panel">
+                <h3>Send a Message or Review</h3>
+                <form id="contact-form" class="portfolio-form" onsubmit="event.preventDefault();">
+                    <div class="form-row-split">
+                        <input type="text" placeholder="Your Name" required>
+                        <select aria-label="Form Type selection">
+                            <option value="general">General Inquiry</option>
+                            <option value="feedback">Feedback / Review</option>
+                        </select>
+                    </div>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea placeholder="Write your message or review text here..." rows="4" required></textarea>
+                    <button type="submit" class="action-btn primary-fill btn-full">Submit Message</button>
+                </form>
             </div>
-        </section>
 
-    </main>
+            <div class="socials-box-panel">
+                <h3>Digital Footprint</h3>
+                <div class="social-links-list">
+                    <a href="#" class="social-item-card">
+                        <div class="social-title">GitHub</div>
+                        <div class="social-user">@yourusername</div>
+                    </a>
+                    <a href="#" class="social-item-card">
+                        <div class="social-title">LinkedIn</div>
+                        <div class="social-user">/in/yourprofile</div>
+                    </a>
+                    <a href="#" class="social-item-card">
+                        <div class="social-title">Email Directly</div>
+                        <div class="social-user">ishi@example.edu</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; 2026 ishi</p>
+    <footer class="portfolio-footer">
+        <p>&copy; 2026 Ishi. Built for clean delivery.</p>
     </footer>
 
     <script src="script.js"></script>

@@ -1,44 +1,50 @@
-/**
- * Simple Vanilla JavaScript Theme Toggle
- * Architecture: Uses HTML5 data attributes to swap configurations
- */
-
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggleBtn = document.getElementById('theme-toggle');
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. DYNAMIC THEME CONTROLLER ---
+    const themeToggle = document.getElementById("theme-toggle");
     const htmlElement = document.documentElement;
-    const modeIcon = themeToggleBtn.querySelector('.mode-icon');
 
-    // Check system preference or localStorage fallback
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const cachedTheme = localStorage.getItem("portfolio-theme") || 
+                        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     
-    // Determine target scheme initial state
-    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-    
-    // Apply initial state
-    htmlElement.setAttribute('data-theme', currentTheme);
-    updateIcon(currentTheme);
+    htmlElement.setAttribute("data-theme", cachedTheme);
 
-    // Click handler for switching themes
-    themeToggleBtn.addEventListener('click', () => {
-        const activeTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+    themeToggle.addEventListener("click", () => {
+        const activeTheme = htmlElement.getAttribute("data-theme");
+        const nextTheme = activeTheme === "light" ? "dark" : "light";
         
-        // Execute state update
-        htmlElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateIcon(newTheme);
+        htmlElement.setAttribute("data-theme", nextTheme);
+        localStorage.setItem("portfolio-theme", nextTheme);
     });
 
-    /**
-     * Changes button symbol dynamically based on current UI state
-     * @param {string} theme - 'light' or 'dark'
-     */
-    function updateIcon(theme) {
-        if (theme === 'dark') {
-            modeIcon.textContent = '☀️'; // Shows sun icon to toggle to light
-        } else {
-            modeIcon.textContent = '🌙'; // Shows moon icon to toggle to dark
-        }
+    // --- 2. HORIZONTAL SCROLL CAROUSEL ENGINE ---
+    const track = document.getElementById("gallery-track");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const viewport = document.querySelector(".gallery-viewport");
+
+    if (track && prevBtn && nextBtn && viewport) {
+        const getScrollStep = () => {
+            const firstCard = track.querySelector(".project-gallery-card");
+            if (firstCard) {
+                // Returns individual card width plus its column gaps
+                return firstCard.getBoundingClientRect().width + 24; 
+            }
+            return 360;
+        };
+
+        nextBtn.addEventListener("click", () => {
+            viewport.scrollBy({
+                left: getScrollStep(),
+                behavior: "smooth"
+            });
+        });
+
+        prevBtn.addEventListener("click", () => {
+            viewport.scrollBy({
+                left: -getScrollStep(),
+                behavior: "smooth"
+            });
+        });
     }
 });
