@@ -1,0 +1,499 @@
+/* ==========================================================================
+   1. VARIABLES & THEMES
+   ========================================================================== */
+:root[data-theme="dark"] {
+    --bg-color: #121212;
+    --card-bg: #1a1a1a;
+    --text-main: #f5f5f5;
+    --text-muted: #a0a0a0;
+    --accent-color: #ff6b9b;       /* Sophisticated Accent Rose Pink */
+    --accent-hover: #ff4781;      /* Slightly darker pink for active/hover */
+    --border-color: #2a2a2a;
+}
+
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --card-bg: #f8f9fa;
+    --text-main: #1a1a1a;
+    --text-muted: #606060;
+    --accent-color: #ff6b9b;       /* Accent remains cohesive */
+    --accent-hover: #e04b7b;      
+    --border-color: #e5e5e5;
+}
+
+/* ==========================================================================
+   2. RESET & BASE STYLES
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.accent {
+    color: var(--accent-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 4rem 0;
+}
+
+/* Page load fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-fade {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ==========================================================================
+   3. NAVIGATION BAR (DESKTOP)
+   ========================================================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+:root[data-theme="light"] .navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+:root[data-theme="dark"] .navbar {
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+/* Desktop layout configurations */
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1.5rem;
+}
+
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.theme-btn:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Hidden desktop layout elements */
+.menu-checkbox, 
+.menu-burger {
+    display: none;
+}
+
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero {
+    padding: 8rem 0 4rem 0;
+}
+
+.hero-subtitle {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   5. SKILLS SECTION
+   ========================================================================== */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.5px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    margin-bottom: 0.6rem;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.skill-detail {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-left: 0.25rem;
+}
+
+/* ==========================================================================
+   6. PROJECTS SECTION
+   ========================================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.project-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-links {
+    margin-top: auto;
+}
+
+.proj-link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+/* Config A Styles (Single link layout) */
+.source-link {
+    color: var(--text-main);
+}
+
+.project-card:hover .source-link {
+    color: var(--accent-color);
+}
+
+/* Config B Styles (Dual side-by-side link layouts) */
+.dual-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.dual-links .live-link {
+    color: var(--accent-color);
+}
+
+.dual-links .live-link:hover {
+    color: var(--accent-hover);
+}
+
+.dual-links .source-link {
+    color: var(--text-muted);
+}
+
+.dual-links .source-link:hover {
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   7. CONTACT & FOOTER
+   ========================================================================== */
+.contact-text {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.contact-item {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.2s;
+    font-size: 1rem;
+}
+
+.contact-item:hover {
+    color: var(--accent-color);
+}
+
+.footer {
+    text-align: center;
+    padding: 4rem 0 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+
+    /* Transform mobile overlay nav links container */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;            
+        flex-direction: column;
+        background-color: var(--bg-color);
+        border-bottom: 1px solid var(--border-color);
+        padding: 2rem 0;
+        gap: 1.5rem;
+        width: 100%;
+        margin-left: 0;
+        
+        /* Smooth dynamic scaling height mechanics */
+        max-height: 0;            
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;         
+        transform: translateY(-10px);
+        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+        z-index: 101;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); 
+    }
+
+    .nav-links a {
+        margin-left: 0;
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Layout shifts for controls on mobile viewports */
+    .nav-controls {
+        margin-left: auto;
+    }
+
+    /* Display Hamburger Trigger Box Container */
+    .menu-burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22px;
+        height: 16px;
+        cursor: pointer;
+        flex-shrink: 0; 
+    }
+
+    .menu-burger span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: var(--text-main);
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* CSS Logic: Open menu drawer when checkbox is checked */
+    .menu-checkbox:checked ~ .nav-links {
+        opacity: 1;
+        visibility: visible;
+        max-height: 300px;        
+        transform: translateY(0);
+    }
+
+    /* CSS Logic: Transform structural bars into an 'X' close symbol layout */
+    .menu-checkbox:checked ~ .nav-controls .menu-burger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .menu-checkbox:checked ~ .nav-controls .menu-burger span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    .menu-checkbox:checked ~ .nav-controls .menu-burger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Hero & Layout responsiveness refinements */
+    .hero {
+        padding: 5rem 0 2rem 0;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: 0.75rem;             
+        width: 100%;
+    }
+    
+    .btn {
+        text-align: center;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
