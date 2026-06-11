@@ -340,6 +340,19 @@ body {
     background-color: var(--bg-accent-element); 
 }
 
+.project-details h3 { 
+    font-size: 1.15rem; 
+    margin-bottom: 0.5rem; 
+    color: var(--text-primary);
+}
+
+.project-details p { 
+    font-size: 0.85rem; 
+    color: var(--text-secondary); 
+    line-height: 1.5; 
+    margin-bottom: 1.5rem; 
+}
+
 .project-tag { 
     font-size: 0.7rem; 
     font-weight: 700; 
@@ -349,29 +362,23 @@ body {
     display: block; 
 }
 
-.project-gallery-card h3 { 
-    font-size: 1.15rem; 
-    margin-bottom: 0.5rem; 
-}
-
-.project-gallery-card p { 
-    font-size: 0.85rem; 
-    color: var(--text-secondary); 
-    line-height: 1.5; 
-    margin-bottom: 1.5rem; 
-}
-
 .project-inline-link { 
     text-decoration: none; 
     font-size: 0.85rem; 
     color: var(--text-primary); 
     font-weight: 600; 
+    transition: var(--layout-transition);
+}
+
+.project-inline-link:hover {
+    color: var(--accent-glow);
 }
 
 .project-box-footer { 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
+    margin-top: auto;
 }
 
 .contact-split-grid { 
